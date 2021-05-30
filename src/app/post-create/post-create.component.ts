@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { PostService } from '../services/post.service';
+import { PostModel } from '../models/post.model';
 
 @Component({
   selector: 'app-post-create',
@@ -16,7 +17,9 @@ export class PostCreateComponent implements OnInit {
   constructor(private fb: FormBuilder, private postService: PostService) {}
 
   ngOnInit(): void {
-    this.validateForm = this.fb.group({});
+    this.validateForm = this.fb.group({
+      title: new FormControl()
+    });
   }
 
   submitForm(): void {
@@ -25,6 +28,12 @@ export class PostCreateComponent implements OnInit {
       this.validateForm.controls[i].updateValueAndValidity();
     }
     console.log(this.validateForm.value);
-    this.postService.createPost(this.validateForm.value);
+    let newPost: PostModel = this.validateForm.value;
+    this.postService.createPost(newPost).subscribe(data => {
+      console.log(data);
+      if(typeof(data.title) === "string") {
+        this.validateForm.reset('');
+      }
+    });
   }
 }

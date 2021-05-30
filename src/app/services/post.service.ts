@@ -4,6 +4,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 
+import { PostModel } from '../models/post.model';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -13,7 +15,7 @@ export class PostService {
 
   constructor(private http: HttpClient) { }
 
-  createPost(postObject: any) {
-    this.http.post(this.postsUrl, postObject).subscribe( data => console.log(data));
+  createPost(postObject: PostModel): Observable<PostModel> {
+    return this.http.post<PostModel>(this.postsUrl, postObject);
   }
 }
