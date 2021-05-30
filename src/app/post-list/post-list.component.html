@@ -1,1 +1,7 @@
-<p>post-list works!</p>
+<div nz-row [nzGutter]="16">
+  <div nz-col class="gutter-row" nzSpan="10" nzOffset="1" *ngFor="let post of postList">
+    <nz-card style="width:300px;" nzTitle="{{post.title}}">
+      <p>ID: {{post.id}}</p>
+    </nz-card>
+  </div>
+</div>

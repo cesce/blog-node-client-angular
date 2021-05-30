@@ -20,6 +20,7 @@ import { IconDefinition } from '@ant-design/icons-angular';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzGridModule } from 'ng-zorro-antd/grid';
+import { NzCardModule } from 'ng-zorro-antd/card';
 
 import { MinusCircleOutline, PlusOutline } from '@ant-design/icons-angular/icons';
 const icons: IconDefinition[] = [ MinusCircleOutline, PlusOutline ];
@@ -43,7 +44,8 @@ registerLocaleData(en);
     NzIconModule.forRoot(icons),
     NzButtonModule,
     NzLayoutModule,
-    NzGridModule
+    NzGridModule,
+    NzCardModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]
