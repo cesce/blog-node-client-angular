@@ -1,7 +1,12 @@
-<div nz-row [nzGutter]="16">
-  <div nz-col class="gutter-row" nzSpan="10" nzOffset="1" *ngFor="let post of postList">
-    <nz-card style="width:300px;" nzTitle="{{post.title}}">
-      <p>ID: {{post.id}}</p>
-    </nz-card>
+<div nz-row>
+  <div nz-col nzSpan="22" nzOffset="1">
+    <div nz-row [nzGutter]="16">
+      <div nz-col nzSpan="8" nzOffset="0" *ngFor="let post of postList">
+        <nz-card style="width:100%;" nzTitle="{{post.title}}" style="margin-bottom: 20px;">
+          <p>ID: {{post.id}}</p>
+          <app-comment-create [postId]="post.id"></app-comment-create>
+        </nz-card>
+      </div>
+    </div>
   </div>
 </div>

@@ -2,6 +2,7 @@
   <nz-content>
     <router-outlet>
       <app-post-create (newPostEvent)="addNewPost($event)"></app-post-create>
+      <nz-divider></nz-divider>
       <app-post-list [postList]="postList"></app-post-list>
     </router-outlet>
   </nz-content>

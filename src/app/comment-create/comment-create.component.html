@@ -1,0 +1,19 @@
+<div *ngFor="let comment of commentsList">
+  <span><b>Comment:</b> {{comment.content}}</span>
+</div>
+<nz-divider></nz-divider>
+<div nz-row nzJustify="center">
+  <form nz-form nz-col nzSpan="24" [formGroup]="validateCommentForm" (ngSubmit)="submitForm()">
+    <nz-form-item>
+      <nz-form-label nzFor="content">Comment</nz-form-label>
+      <nz-form-control>
+        <input nz-input name="content" id="content" formControlName="content">
+      </nz-form-control>
+    </nz-form-item >
+    <nz-form-item>
+      <nz-form-control>
+        <button nz-button nzType="primary">Submit</button>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+</div>

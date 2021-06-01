@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 
-import { PostRequestModel, PostModel } from '../models/post.model';
+import { PostRequestModel, CommentModel } from '../models/post.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +12,7 @@ import { PostRequestModel, PostModel } from '../models/post.model';
 export class PostService {
 
   postsUrl = 'http://localhost:4000/posts';
+  commentsUrl = 'http://localhost:4001/posts';
 
   constructor(private http: HttpClient) { }
 
@@ -21,5 +22,13 @@ export class PostService {
 
   getAllPosts() {
     return this.http.get<any>(this.postsUrl);
+  }
+
+  createComment(postId: String, comment: CommentModel): Observable<CommentModel[]> {
+    return this.http.post<CommentModel[]>(`${this.commentsUrl}/${postId}/comments`, comment);
+  }
+
+  getAllPostComments(postId: String): Observable<CommentModel[]> {
+    return this.http.get<CommentModel[]>(`${this.commentsUrl}/${postId}/comments`);
   }
 }

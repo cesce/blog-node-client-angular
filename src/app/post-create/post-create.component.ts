@@ -33,7 +33,7 @@ export class PostCreateComponent implements OnInit {
     this.postService.createPost(newPost).subscribe((data: PostRequestModel) => {
       console.log(data);
       if(typeof(data.title) === "string") {
-        const id: number = data.id || -1;
+        const id: String = data.id || '';
         const newPost: PostModel = {
           id: id,
           title: data.title

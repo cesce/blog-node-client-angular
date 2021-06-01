@@ -21,8 +21,10 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzCardModule } from 'ng-zorro-antd/card';
+import { NzDividerModule } from 'ng-zorro-antd/divider';
 
 import { MinusCircleOutline, PlusOutline } from '@ant-design/icons-angular/icons';
+import { CommentCreateComponent } from './comment-create/comment-create.component';
 const icons: IconDefinition[] = [ MinusCircleOutline, PlusOutline ];
 
 registerLocaleData(en);
@@ -31,7 +33,8 @@ registerLocaleData(en);
   declarations: [
     AppComponent,
     PostCreateComponent,
-    PostListComponent
+    PostListComponent,
+    CommentCreateComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +48,8 @@ registerLocaleData(en);
     NzButtonModule,
     NzLayoutModule,
     NzGridModule,
-    NzCardModule
+    NzCardModule,
+    NzDividerModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]

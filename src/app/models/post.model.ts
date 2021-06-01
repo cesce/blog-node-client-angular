@@ -1,9 +1,13 @@
 export interface PostRequestModel {
-  id?: number;
+  id?: String;
   title: String;
 }
 
 export interface PostModel {
-  id: number;
-  title: string;
+  id: String;
+  title: String;
+}
+
+export interface CommentModel {
+  content: String;
 }
